@@ -10,9 +10,9 @@ SCHEMA = Schema({
     'name': str,
     Optional('twitter'): str,
     Optional('email'): str,
-    Optional('personal'): str,
+    Optional('personal'): lambda v: v.startswith('http'),
     Optional('github'): str,
-    Optional('linkedin'): str,    
+    Optional('linkedin'): lambda v: not v.startswith('http'),
 })
 
 
